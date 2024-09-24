@@ -39,8 +39,8 @@ jobs:
       - name: Record test results to Launchable workspace
         uses: launchableinc/record-build-and-test-results-action@v1.0.0
         with:
-          report_path: report.xml
-          test_runner: go-test
+          report_path: <PATH TO YOUR REPORT FILES>
+          test_runner: raw
         if: always()
         env:
           LAUNCHABLE_TOKEN: ${{ secrets.LAUNCHABLE_TOKEN }}
