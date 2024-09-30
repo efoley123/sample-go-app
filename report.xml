@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+	<testsuite tests="4" failures="0" time="0.262" name="demo-app">
+		<properties>
+			<property name="go.version" value="go1.23.1"></property>
+		</properties>
+		<testcase classname="demo-app" name="TestGetCommitSha" time="0.000"></testcase>
+		<testcase classname="demo-app" name="TestGetColor" time="0.000"></testcase>
+		<testcase classname="demo-app" name="TestGetTextColor" time="0.000"></testcase>
+		<testcase classname="demo-app" name="TestGetEnvironment" time="0.000"></testcase>
+	</testsuite>
+</testsuites>
