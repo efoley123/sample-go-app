@@ -8,18 +8,19 @@ on:
       - '**'
 
 jobs:
-    ci-job:
-      steps:
-      - uses: docker://alpine/git:latest
-        run: |
-          git config --global --add safe.directory /cloudbees/workspace
-      - name: checkout
-        uses: cloudbees-io/checkout@v1
-      - name: Build Go app
-        uses: docker://golang:1.20
-        run: |
-          go build -v ./...
-      - name: Run tests
-        uses: docker://golang:1.20
-        run: |
-          go test -v ./...
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+        name: Test
+        run: go test -v ./... | go-junit-report -set-exit-code > report.xml
+      - name: Record test results to Launchable workspace
+        uses: launchableinc/record-build-and-test-results-action@v1.0.0
+        with:
+          report_path: './report.xml'
+          test_runner: go-test
+        if: always()
+        env:
+          LAUNCHABLE_TOKEN: ${{ secrets.LAUNCHABLE_TOKEN }}
