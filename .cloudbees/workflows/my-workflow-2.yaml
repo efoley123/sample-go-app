@@ -1,4 +1,4 @@
-apiVersion: automation.cloudbees.io/v1alpha1
+apiVersion: tekton.dev/v1beta1
 kind: workflow
 name: My workflow
 
