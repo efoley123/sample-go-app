@@ -6,15 +6,17 @@ on:
   push:
     branches:
       - '**'
-spec:
-  jobs:
-    - name: tests
-      steps:
+
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-
       - name: Test
+        uses: docker://golang:1.20 #unsure about this uses
         run: go test -v ./... | go-junit-report -set-exit-code > report.xml
 
       - name: Record test results to Launchable workspace
