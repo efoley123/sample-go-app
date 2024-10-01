@@ -21,4 +21,4 @@ jobs:
           report_path: './report.xml'
         if: always()
         env:
-          LAUNCHABLE_TOKEN: ${{ secrets.LAUNCHABLE_TOKEN }}
+          LAUNCHABLE_TOKEN: v1:f991ec0f-0f34-49bc-673c-100d47ea3587/2f336c0b-b12f-4357-b6b4-5271644b1755:88cb4665f5554e7ba1b0a2d9a6e85a9e
