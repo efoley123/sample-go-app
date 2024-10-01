@@ -6,16 +6,17 @@ on:
   push:
     branches:
       - '**'
-
-jobs:
-  tests:
-    runs-on: ubuntu-latest
-    steps:
+spec:
+  jobs:
+    - name: tests
+      steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-        name: Test
+
+      - name: Test
         run: go test -v ./... | go-junit-report -set-exit-code > report.xml
+
       - name: Record test results to Launchable workspace
         uses: launchableinc/record-build-and-test-results-action@v1.0.0
         with:
