@@ -34,7 +34,14 @@ func main() {
 		c.File("./static/favicon.ico")
 	})
 
-	router.Run()
+	//added code
+	// Specify the port here
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "3000" // Default port
+	}
+
+	router.Run(":" + port)
 }
 
 func getCommitSha() string {
