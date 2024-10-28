@@ -47,3 +47,7 @@ func TestGetEnvironment(t *testing.T) {
 		t.Errorf("getEnvironment() = %s; want %s", result, expectedEnvironment)
 	}
 }
+
+func TestFail(t *testing.T) {
+	t.Errorf("test failed")
+}
